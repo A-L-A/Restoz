@@ -14,9 +14,9 @@ function App() {
       <Navbar />
       
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
+        <Route path="Restoz/" element={<Home />} />
+        <Route path="Restoz/contact" element={<Contact />} />
+        <Route path="Restoz/about" element={<About />} />
         <Route path="*" element={<h1>Not Found</h1>} />
 
       </Routes>
