@@ -7,8 +7,9 @@ import {
   useDisclosure,
   Collapse,
   VStack,
-  HStack, 
+  HStack,
   Text,
+  Link,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
@@ -28,9 +29,16 @@ const Navbar = () => {
         justifyContent="space-between"
         wrap="wrap"
       >
-        <Heading as="h1" size="lg" color="white">
-          Restoz
-        </Heading>
+        {/* Left side: Restoz */}
+        <Flex alignItems="center">
+          <Link href="/" _hover={{ textDecoration: 'none' }}>
+            <Heading as="h1" size="lg" color="white" mr={8}>
+              Restoz
+            </Heading>
+          </Link>
+        </Flex>
+
+        {/* Right side: Icon button for mobile and the links */}
         <IconButton
           display={{ base: 'block', md: 'none' }}
           onClick={onToggle}
@@ -38,9 +46,29 @@ const Navbar = () => {
           aria-label="Toggle Navigation"
           variant="unstyled"
         />
+
+        {/* Links for desktop */}
+        <HStack
+          display={{ base: 'none', md: 'flex' }}
+          alignItems="center"
+          spacing={8}
+        >
+          {links.map((link, index) => (
+            <Text
+              key={index}
+              color="white"
+              fontWeight="bold"
+              _hover={{ color: 'gray.300' }}
+            >
+              <Link href={link.url}>{link.label}</Link>
+            </Text>
+          ))}
+        </HStack>
+
+        {/* Collapse for mobile view */}
         <Collapse in={isOpen} animateOpacity>
           <VStack
-            display={{ base: 'block', md: isOpen ? 'flex' : 'none' }}
+            display={{ base: 'block', md: 'none' }}
             alignItems="center"
             mt={{ base: 2, md: 0 }}
             spacing={4}
@@ -52,31 +80,12 @@ const Navbar = () => {
                 fontWeight="bold"
                 _hover={{ color: 'gray.300' }}
               >
-                <a href={link.url}>{link.label}</a>
+                <Link href={link.url}>{link.label}</Link>
               </Text>
             ))}
           </VStack>
         </Collapse>
       </Flex>
-  
-      <HStack
-        display={{ base: 'none', md: 'flex' }}
-        justifyContent="flex-end"
-        alignItems="center"
-        px={[4, 6, 8]}
-        py={2}
-      >
-        {links.map((link, index) => (
-          <Text
-            key={index}
-            color="white"
-            fontWeight="bold"
-            _hover={{ color: 'gray.300' }}
-          >
-            <a href={link.url}>{link.label}</a>
-          </Text>
-        ))}
-      </HStack>
     </Box>
   );
 };
