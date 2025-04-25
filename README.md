@@ -1,15 +1,20 @@
-# Restoz
+# Restoz: Restaurant Locator App
 
-**How to Run the project locally:**
+A web application that helps users locate restaurants based on their selected locations.
 
+## How to Run the Project Locally
 
-1. Download project as a zip folder OR clone the repository on you local machine if preferred
-2. Extract files from the zip folder 
-3. Open extracted folder with an IDE
-4. Navigate to the folder path in the terminal within your IDE
-5. Initiate a node repository using “npm init” in the terminal
-6. Install node modules with “npm i” using the terminal
-7. Run the command “ npm run dev” to start the application with vote on your local server
+1. Download or Clone the Repository**  
+   - Option 1: Download the project as a `.zip` file and extract it.  
+   - Option 2: Clone the repository to your local machine using:  
+     ```bash
+     git clone <repository-url>
+     ```
 
-N.B: When testing out the restaurant locator, it may help to add city names along	 with the country (e.g Port Louis, Mauritius) to generate data due to API limitations. Not all countries have data. 
+2. Open the Project in an IDE**  
+   Navigate to the extracted or cloned project folder and open it with your preferred code editor (e.g., VS Code).
 
+3. Initialize the Node Project**  
+   In your terminal (inside the project folder), run:  
+   ```bash
+   npm init
